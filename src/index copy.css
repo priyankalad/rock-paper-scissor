@@ -1,11 +1,12 @@
-@use 'base';
 html {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
+  -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
 
@@ -14,6 +15,7 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
-  background-color: base.$dark-text;
+  background-color: #3b4363;
   font-family: "Barlow Semi Condensed", sans-serif;
 }
+/*# sourceMappingURL=index.css.map */
