@@ -31,6 +31,136 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
-  background-color: $dark-text;
+  background: linear-gradient(to bottom, $radial-gradient1, $radial-gradient2);
   font-family: "Barlow Semi Condensed", sans-serif;
+  text-transform: uppercase;
+}
+
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .header {
+    margin: 1rem;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 0.5rem solid #606e85;
+    border-radius: 1rem;
+    .score {
+      width: 8rem;
+      height: 8rem;
+      background-color: white;
+      border-radius: 1rem;
+      text-align: center;
+      .scr-title {
+        color: $score-text;
+        letter-spacing: 0.1rem;
+        font-weight: 600;
+      }
+      .scr-val {
+        font-size: 3rem;
+        color: $dark-text;
+        transform: scaleY(1.5);
+        margin: 0;
+      }
+    }
+  }
+  .paper-icon {
+    top: -10rem;
+    left: -12rem;
+    border: 1.5rem solid $paper-gradient1;
+  }
+  .scissors-icon {
+    top: -10rem;
+    left: 2rem;
+    border: 1.5rem solid $scissors-gradient1;
+  }
+  .rock-icon {
+    top: 2rem;
+    left: -5rem;
+    border: 1.5rem solid $rock-gradient1;
+  }
+  .main {
+    position: relative;
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .bgTriange {
+      z-index: -1;
+    }
+    .icons {
+      position: absolute;
+      img {
+        position: absolute;
+        border-radius: 50%;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 50%;
+      }
+    }
+  }
+  .playGame {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .pickedByPlayer,
+    .pickedByHouse {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img {
+      border-radius: 50%;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 50%;
+    }
+
+    p {
+      font-weight: 800;
+      color: white;
+    }
+  }
+  .result-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+    a {
+      padding: 1rem;
+      border: 1px solid white;
+      border-radius: 10px;
+      color: $dark-text;
+      transform: scaleY(1);
+      background-color: white;
+    }
+  }
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    .linkRules {
+      padding: 1rem 2rem;
+      border: 1px solid white;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1rem;
+    }
+  }
 }

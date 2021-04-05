@@ -15,7 +15,206 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
-  background-color: #3b4363;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1f3756), to(#141539));
+  background: linear-gradient(to bottom, #1f3756, #141539);
   font-family: "Barlow Semi Condensed", sans-serif;
+  text-transform: uppercase;
+}
+
+.app-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.app-container .header {
+  margin: 1rem;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+  border: 0.5rem solid #606e85;
+  border-radius: 1rem;
+}
+
+.app-container .header .score {
+  width: 8rem;
+  height: 8rem;
+  background-color: white;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.app-container .header .score .scr-title {
+  color: #2a46c0;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+
+.app-container .header .score .scr-val {
+  font-size: 3rem;
+  color: #3b4363;
+  -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5);
+  margin: 0;
+}
+
+.app-container .paper-icon {
+  top: -10rem;
+  left: -12rem;
+  border: 1.5rem solid #4865f4;
+}
+
+.app-container .scissors-icon {
+  top: -10rem;
+  left: 2rem;
+  border: 1.5rem solid #ec9e0e;
+}
+
+.app-container .rock-icon {
+  top: 2rem;
+  left: -5rem;
+  border: 1.5rem solid #dc2e4e;
+}
+
+.app-container .main {
+  position: relative;
+  margin-top: 2rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.app-container .main .bgTriange {
+  z-index: -1;
+}
+
+.app-container .main .icons {
+  position: absolute;
+}
+
+.app-container .main .icons img {
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 50%;
+}
+
+.app-container .playGame {
+  margin-top: 2rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.app-container .playGame .pickedByPlayer,
+.app-container .playGame .pickedByHouse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app-container .playGame img {
+  border-radius: 50%;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 50%;
+}
+
+.app-container .playGame p {
+  font-weight: 800;
+  color: white;
+}
+
+.app-container .result-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  color: white;
+}
+
+.app-container .result-container a {
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: #3b4363;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  background-color: white;
+}
+
+.app-container footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 5rem;
+}
+
+.app-container footer .linkRules {
+  padding: 1rem 2rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
 }
 /*# sourceMappingURL=index.css.map */
