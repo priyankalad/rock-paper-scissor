@@ -1,0 +1,19 @@
+@use 'base';
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: base.$dark-text;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
