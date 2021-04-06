@@ -52,6 +52,7 @@ body {
   padding: 1rem;
   border: 0.5rem solid #606e85;
   border-radius: 1rem;
+  z-index: 111;
 }
 
 .app-container .header .score {
@@ -79,19 +80,25 @@ body {
 .app-container .paper-icon {
   top: -10rem;
   left: -12rem;
-  border: 1.5rem solid #4865f4;
+  border: 1.5rem solid #5671f5;
+  -webkit-box-shadow: 0px 5px #4865f4, 0px 5px lightgrey inset, 0 0 0 3rem #2a3352, 0 0 0 6rem #232e4c, 0 0 0 9rem #1f2a4a;
+          box-shadow: 0px 5px #4865f4, 0px 5px lightgrey inset, 0 0 0 3rem #2a3352, 0 0 0 6rem #232e4c, 0 0 0 9rem #1f2a4a;
 }
 
 .app-container .scissors-icon {
   top: -10rem;
   left: 2rem;
-  border: 1.5rem solid #ec9e0e;
+  border: 1.5rem solid #eca922;
+  -webkit-box-shadow: 0px 5px #ec9e0e, 0px 5px lightgrey inset;
+          box-shadow: 0px 5px #ec9e0e, 0px 5px lightgrey inset;
 }
 
 .app-container .rock-icon {
   top: 2rem;
   left: -5rem;
-  border: 1.5rem solid #dc2e4e;
+  border: 1.5rem solid #dd405d;
+  -webkit-box-shadow: 0px 8px #dc2e4e, 0px 8px lightgrey inset;
+          box-shadow: 0px 8px #dc2e4e, 0px 8px lightgrey inset;
 }
 
 .app-container .main {
