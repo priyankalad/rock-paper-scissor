@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="rules-container">
           <h1 className="heading">rules</h1>
           <img className="img-rules" src={rulesImg} alt="game rules" />
-          <button class="btnClose" onClick={closeModal}>
+          <button className="btnClose" onClick={closeModal}>
             <img src={closeButton} alt="game rules" />
           </button>
         </div>

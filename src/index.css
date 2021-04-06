@@ -55,7 +55,7 @@ body {
   z-index: 111;
 }
 
-.app-container .header .score {
+.app-container .header .stat {
   width: 8rem;
   height: 8rem;
   background-color: white;
@@ -63,13 +63,13 @@ body {
   text-align: center;
 }
 
-.app-container .header .score .scr-title {
+.app-container .header .stat .scr-title {
   color: #2a46c0;
   letter-spacing: 0.1rem;
   font-weight: 600;
 }
 
-.app-container .header .score .scr-val {
+.app-container .header .stat .scr-val {
   font-size: 3rem;
   color: #3b4363;
   -webkit-transform: scaleY(1.5);
@@ -81,8 +81,8 @@ body {
   top: -10rem;
   left: -12rem;
   border: 1.5rem solid #5671f5;
-  -webkit-box-shadow: 0px 5px #4865f4, 0px 5px lightgrey inset, 0 0 0 3rem #2a3352, 0 0 0 6rem #232e4c, 0 0 0 9rem #1f2a4a;
-          box-shadow: 0px 5px #4865f4, 0px 5px lightgrey inset, 0 0 0 3rem #2a3352, 0 0 0 6rem #232e4c, 0 0 0 9rem #1f2a4a;
+  -webkit-box-shadow: 0px 5px #4865f4, 0px 5px lightgrey inset;
+          box-shadow: 0px 5px #4865f4, 0px 5px lightgrey inset;
 }
 
 .app-container .scissors-icon {
@@ -124,12 +124,14 @@ body {
   position: absolute;
 }
 
-.app-container .main .icons img {
+.app-container .main .icons a {
   position: absolute;
   border-radius: 50%;
   background-color: white;
   padding: 2rem;
   border-radius: 50%;
+  cursor: pointer;
+  outline-style: none;
 }
 
 .app-container .playGame {
@@ -144,6 +146,8 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .app-container .playGame .pickedByPlayer,
@@ -160,19 +164,7 @@ body {
           align-items: center;
 }
 
-.app-container .playGame img {
-  border-radius: 50%;
-  background-color: white;
-  padding: 2rem;
-  border-radius: 50%;
-}
-
-.app-container .playGame p {
-  font-weight: 800;
-  color: white;
-}
-
-.app-container .result-container {
+.app-container .playGame .result-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -190,7 +182,13 @@ body {
   color: white;
 }
 
-.app-container .result-container a {
+.app-container .playGame .result-container a,
+.app-container .playGame .result-container h1 {
+  -webkit-transform: scaleY(1.2);
+          transform: scaleY(1.2);
+}
+
+.app-container .playGame .result-container a {
   padding: 1rem;
   border: 1px solid white;
   border-radius: 10px;
@@ -198,6 +196,19 @@ body {
   -webkit-transform: scaleY(1);
           transform: scaleY(1);
   background-color: white;
+  text-decoration: none;
+}
+
+.app-container .playGame img {
+  border-radius: 50%;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 50%;
+}
+
+.app-container .playGame p {
+  font-weight: 800;
+  color: white;
 }
 
 .app-container footer {
@@ -267,11 +278,48 @@ body {
 }
 
 @media all and (min-width: 769px) {
-  .app-container > footer {
-    margin-left: auto;
-    margin-right: 2rem;
+  .app-container > .header {
+    width: 50%;
   }
-  .app-container > footer > .modalBox {
+  .pickedByPlayer > .paper-icon {
+    top: -10rem;
+    left: -12rem;
+    border: 1.5rem solid #5671f5;
+    -webkit-box-shadow: 0px 5px #4865f4, 0px 5px lightgrey inset;
+            box-shadow: 0px 5px #4865f4, 0px 5px lightgrey inset;
+  }
+  .app-container > .playGame {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .app-container > .playGame .pickedByPlayer,
+  .app-container > .playGame .pickedByHouse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    width: 15%;
+  }
+  .app-container > .playGame .pickedByHouse {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .app-container > .playGame .result-container {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 25%;
+  }
+  .app-container > footer {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-right: 2rem;
+    height: 20vh;
+    margin-bottom: 0;
+  }
+  .app-container > footer .modalBox {
     background-color: white;
     position: fixed;
     top: 30%;
@@ -281,7 +329,7 @@ body {
     z-index: 999;
     border-radius: 15px;
   }
-  .app-container > footer > .modalBox .rules-container {
+  .app-container > footer .modalBox .rules-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -297,7 +345,7 @@ body {
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  .app-container > footer > .modalBox .rules-container .heading {
+  .app-container > footer .modalBox .rules-container .heading {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
@@ -306,7 +354,7 @@ body {
     padding: 1rem;
     margin: auto;
   }
-  .app-container > footer > .modalBox .rules-container .btnClose {
+  .app-container > footer .modalBox .rules-container .btnClose {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
@@ -314,11 +362,11 @@ body {
         flex-basis: 50%;
     margin: auto;
   }
-  .app-container > footer > .modalBox .rules-container .btnClose img {
+  .app-container > footer .modalBox .rules-container .btnClose img {
     float: right;
     padding-right: 2rem;
   }
-  .app-container > footer > .modalBox .rules-container .img-rules {
+  .app-container > footer .modalBox .rules-container .img-rules {
     margin: auto;
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;

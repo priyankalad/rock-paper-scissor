@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Score() {
+export default function Score({ currentScore }) {
   return (
-    <div className="score">
+    <div className="stat">
       <p className="scr-title">score</p>
-      <h1 className="scr-val">12</h1>
+      <h1 className="scr-val">{currentScore}</h1>
     </div>
   );
 }
