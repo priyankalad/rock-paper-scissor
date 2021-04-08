@@ -1,20 +1,4 @@
-$scissors-gradient1: hsl(39, 89%, 49%);
-$scissors-gradient2: hsl(40, 84%, 53%);
-$paper-gradient1: hsl(230, 89%, 62%);
-$paper-gradient2: hsl(230, 89%, 65%);
-$rock-gradient1: hsl(349, 71%, 52%);
-$rock-gradient2: hsl(349, 70%, 56%);
-$lizard-gradient1: hsl(261, 73%, 60%);
-$lizard-gradient2: hsl(261, 72%, 63%);
-$cyan1: hsl(189, 59%, 53%);
-$cyan2: hsl(189, 58%, 57%);
-
-$dark-text: hsl(229, 25%, 31%);
-$score-text: hsl(229, 64%, 46%);
-$header-outline: hsl(217, 16%, 45%);
-
-$radial-gradient1: hsl(214, 47%, 23%);
-$radial-gradient2: hsl(237, 49%, 15%);
+@use 'base';
 
 html {
   box-sizing: border-box;
@@ -31,7 +15,11 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(to bottom, $radial-gradient1, $radial-gradient2);
+  background: linear-gradient(
+    to bottom,
+    base.$radial-gradient1,
+    base.$radial-gradient2
+  );
   font-family: "Barlow Semi Condensed", sans-serif;
   text-transform: uppercase;
 }
@@ -58,13 +46,13 @@ body {
       border-radius: 1rem;
       text-align: center;
       .scr-title {
-        color: $score-text;
+        color: base.$score-text;
         letter-spacing: 0.1rem;
         font-weight: 600;
       }
       .scr-val {
         font-size: 3rem;
-        color: $dark-text;
+        color: base.$dark-text;
         transform: scaleY(1.5);
         margin: 0;
       }
@@ -73,21 +61,21 @@ body {
   .paper-icon {
     top: -10rem;
     left: -12rem;
-    border: 1.5rem solid $paper-gradient2;
-    box-shadow: 0px 5px $paper-gradient1, 0px 5px lightgrey inset;
+    border: 1.5rem solid base.$paper-gradient2;
+    box-shadow: 0px 5px base.$paper-gradient1, 0px 5px lightgrey inset;
     //  0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
   }
   .scissors-icon {
     top: -10rem;
     left: 2rem;
-    border: 1.5rem solid $scissors-gradient2;
-    box-shadow: 0px 5px $scissors-gradient1, 0px 5px lightgrey inset;
+    border: 1.5rem solid base.$scissors-gradient2;
+    box-shadow: 0px 5px base.$scissors-gradient1, 0px 5px lightgrey inset;
   }
   .rock-icon {
     top: 2rem;
     left: -5rem;
-    border: 1.5rem solid $rock-gradient2;
-    box-shadow: 0px 8px $rock-gradient1, 0px 8px lightgrey inset;
+    border: 1.5rem solid base.$rock-gradient2;
+    box-shadow: 0px 8px base.$rock-gradient1, 0px 8px lightgrey inset;
   }
   .main {
     position: relative;
@@ -141,7 +129,7 @@ body {
         padding: 1rem;
         border: 1px solid white;
         border-radius: 10px;
-        color: $dark-text;
+        color: base.$dark-text;
         transform: scaleY(1);
         background-color: white;
         text-decoration: none;
@@ -195,7 +183,7 @@ body {
         flex-direction: column;
         height: 100%;
         h1 {
-          color: $dark-text;
+          color: base.$dark-text;
           transform: scaleY(1.3);
         }
         button {
@@ -215,8 +203,8 @@ body {
   .pickedByPlayer > .paper-icon {
     top: -10rem;
     left: -12rem;
-    border: 1.5rem solid $paper-gradient2;
-    box-shadow: 0px 5px $paper-gradient1, 0px 5px lightgrey inset;
+    border: 1.5rem solid base.$paper-gradient2;
+    box-shadow: 0px 5px base.$paper-gradient1, 0px 5px lightgrey inset;
     // 0 0 0 4rem #2a3352, 0 0 0 8rem #232e4c, 0 0 0 12rem #1f2a4a;
   }
   .app-container > .playGame {

@@ -34,9 +34,7 @@ export default function Game(props) {
         setResultText("lose");
       }
     }
-    if (resultText) {
-      handleScoreCalc(resultText);
-    }
+    if (resultText) handleScoreCalc(resultText);
   }, [houseSelection, resultText]);
 
   return (

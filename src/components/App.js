@@ -33,7 +33,7 @@ function App() {
     }
     console.log(" updated score: " + updatedScore);
     console.log("type of updated score: " + typeof updatedScore);
-    setCurrentScore(1);
+    setCurrentScore((prevScore) => prevScore + 1);
   }
 
   return (
