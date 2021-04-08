@@ -4,8 +4,12 @@ import triangle from "../images/bg-triangle.svg";
 import paperIcon from "../images/icon-paper.svg";
 import rockIcon from "../images/icon-rock.svg";
 import scissorsIcon from "../images/icon-scissors.svg";
+import { useDispatch } from "react-redux";
+import { pickForPlayer } from "../redux/gameSlice";
 
-export default function Main({ playerSelectionHandler }) {
+export default function Main() {
+  let dispatch = useDispatch();
+
   return (
     <div className="main">
       <img className="bgTriange" src={triangle} alt="Triangle" />
@@ -14,21 +18,21 @@ export default function Main({ playerSelectionHandler }) {
         <Link
           to="/newgame"
           className="paper-icon"
-          onClick={() => playerSelectionHandler("paper")}
+          onClick={() => dispatch(pickForPlayer("paper"))}
         >
           <img src={paperIcon} alt="paper icon" />
         </Link>
         <Link
           to="/newgame"
           className="scissors-icon"
-          onClick={() => playerSelectionHandler("scissors")}
+          onClick={() => dispatch(pickForPlayer("scissors"))}
         >
           <img src={scissorsIcon} alt="scissors icon" />
         </Link>
         <Link
           to="/newgame"
           className="rock-icon"
-          onClick={() => playerSelectionHandler("rock")}
+          onClick={() => dispatch(pickForPlayer("rock"))}
         >
           <img src={rockIcon} alt="rock icon" />
         </Link>

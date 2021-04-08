@@ -7,22 +7,27 @@ export const statisticsSlice = createSlice({
     gamesWon: 0,
     score: 0,
   },
-  reducer: {
-    incrementTotalGame: (state) => {
-      state.totalGames += 1;
-    },
-    incrementGamesWon: (state, action) => {
-      if (action.payload === "win") {
-        state.gamesWon += 1;
-      }
-    },
-    calculateScore: (state, action) => {
-      if (action.payload === "win") {
-        state.score += 1;
-      } else if (action.payload === "lose") {
-        state.score -= 1;
-      }
-    },
+  reducers: {
+    incrementTotalGame: (state) => ({
+      ...state,
+      totalGames: state.totalGames + 1,
+    }),
+    incrementGamesWon: (state, action) => ({
+      ...state,
+      gamesWon:
+        action.payload === "win"
+          ? (state.gamesWon = state.gamesWon + 1)
+          : state.gamesWon,
+    }),
+    calculateScore: (state, action) => ({
+      ...state,
+      score:
+        action.payload === "win"
+          ? (state.score = state.score + 1)
+          : action.payload === "lose"
+          ? (state.score = state.score - 1)
+          : state.score,
+    }),
   },
 });
 

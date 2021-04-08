@@ -1,51 +1,32 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import paperIcon from "../images/icon-paper.svg";
 import rockIcon from "../images/icon-rock.svg";
 import scissorIcon from "../images/icon-scissors.svg";
+import { setWinStatus } from "../redux/gameSlice";
 
-export default function Game(props) {
-  let { playerSelection, items, handleScoreCalc } = props;
-  const [houseSelection, setHouseSelection] = useState("");
-  const [resultText, setResultText] = useState("");
+export default function Game() {
+  const { playerPicked, housePicked, items, winStatus } = useSelector(
+    (state) => state.game
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("Inside useeffect ");
     let randomlySelectedByHouse =
       items[Math.floor(Math.random() * items.length)];
-    setHouseSelection(randomlySelectedByHouse["item"]);
+    dispatch(setWinStatus(randomlySelectedByHouse["item"]));
   }, []);
-
-  useEffect(() => {
-    console.log(
-      "Inside useeffect called with dependencies: " +
-        houseSelection +
-        "---" +
-        resultText +
-        "---"
-    );
-    if (houseSelection) {
-      let itemByPlayer = items.find((i) => i.item === playerSelection);
-      if (playerSelection === houseSelection) {
-        setResultText("tie");
-      } else if (itemByPlayer["beats"] === houseSelection) {
-        setResultText("win");
-      } else {
-        setResultText("lose");
-      }
-    }
-    if (resultText) handleScoreCalc(resultText);
-  }, [houseSelection, resultText]);
 
   return (
     <div className="playGame">
       <div className="pickedByPlayer">
         <img
-          className={playerSelection + "-icon"}
+          className={playerPicked + "-icon"}
           src={
-            playerSelection === "paper"
+            playerPicked === "paper"
               ? paperIcon
-              : playerSelection === "rock"
+              : playerPicked === "rock"
               ? rockIcon
               : scissorIcon
           }
@@ -55,13 +36,13 @@ export default function Game(props) {
         <p>you picked</p>
       </div>
       <div className="pickedByHouse">
-        {houseSelection ? (
+        {housePicked ? (
           <img
-            className={houseSelection + "-icon"}
+            className={housePicked + "-icon"}
             src={
-              houseSelection === "paper"
+              housePicked === "paper"
                 ? paperIcon
-                : houseSelection === "rock"
+                : housePicked === "rock"
                 ? rockIcon
                 : scissorIcon
             }
@@ -73,7 +54,7 @@ export default function Game(props) {
         <p>the house picked</p>
       </div>
       <div className="result-container">
-        <h1> {resultText === "tie" ? resultText : "you " + resultText}</h1>
+        <h1> {winStatus === "tie" ? winStatus : "you " + winStatus}</h1>
         <Link to="/">play again</Link>
       </div>
     </div>

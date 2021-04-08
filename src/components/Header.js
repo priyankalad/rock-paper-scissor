@@ -3,12 +3,12 @@ import GamesWon from "./GamesWon";
 import Logo from "./Logo";
 import Score from "./Score";
 
-export default function Header({ currentScore, totalGamesPlayed, winCount }) {
+export default function Header() {
   return (
     <div className="header">
       <Logo />
-      <GamesWon totalGamesPlayed={totalGamesPlayed} winCount={winCount} />
-      <Score currentScore={currentScore} />
+      <GamesWon />
+      <Score />
     </div>
   );
 }
