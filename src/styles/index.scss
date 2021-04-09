@@ -40,30 +40,29 @@ body {
     border-radius: 1rem;
     z-index: 111;
     .stat {
-      width: 8rem;
-      height: 8rem;
+      width: 5rem;
+      height: 7rem;
       background-color: white;
       border-radius: 1rem;
       text-align: center;
       .scr-title {
         color: base.$score-text;
-        letter-spacing: 0.1rem;
         font-weight: 600;
       }
       .scr-val {
-        font-size: 3rem;
+        font-size: 1.5rem;
         color: base.$dark-text;
-        transform: scaleY(1.5);
+        transform: scaleY(1.3);
         margin: 0;
       }
     }
   }
+
   .paper-icon {
     top: -10rem;
     left: -12rem;
     border: 1.5rem solid base.$paper-gradient2;
     box-shadow: 0px 5px base.$paper-gradient1, 0px 5px lightgrey inset;
-    //  0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
   }
   .scissors-icon {
     top: -10rem;
@@ -76,6 +75,23 @@ body {
     left: -5rem;
     border: 1.5rem solid base.$rock-gradient2;
     box-shadow: 0px 8px base.$rock-gradient1, 0px 8px lightgrey inset;
+  }
+  .win-paper {
+    box-shadow: 0px 5px base.$paper-gradient1, 0px 5px lightgrey inset,
+      0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
+  }
+  .win-rock {
+    box-shadow: 0px 5px base.$rock-gradient1, 0px 5px lightgrey inset,
+      0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
+  }
+  .win-scissors {
+    box-shadow: 0px 5px base.$scissors-gradient1, 0px 5px lightgrey inset,
+      0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
+  }
+  .win-paper,
+  .win-rock,
+  .win-scissors {
+    z-index: -999;
   }
   .main {
     position: relative;
@@ -100,6 +116,47 @@ body {
       }
     }
   }
+  .playGame,
+  .playGameNeutral {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  @keyframes MoveUpDown {
+    0%,
+    100% {
+      margin-top: 20px;
+    }
+    50% {
+      margin-top: 0px;
+    }
+  }
+  .playGameNeutral {
+    .pickedByPlayerNeutral,
+    .pickedByHouseNeutral {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: rotate(90deg);
+      animation-name: MoveUpDown;
+      animation-duration: 0.5s;
+      animation-iteration-count: 3;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+    .pickedByHouseNeutral {
+      transform: scaleX(-1) rotate(90deg);
+    }
+    img {
+      border-radius: 50%;
+      width: 6rem;
+    }
+  }
+
   .playGame {
     margin-top: 2rem;
     width: 100%;
@@ -153,6 +210,8 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 5rem;
+    position: fixed;
+    bottom: 5%;
     .btnRules {
       padding: 1rem 2rem;
       border: 1px solid white;
@@ -199,14 +258,32 @@ body {
 @media all and (min-width: 769px) {
   .app-container > .header {
     width: 50%;
+    .stat {
+      width: 8rem;
+      height: 8rem;
+      .scr-title {
+        letter-spacing: 0.1rem;
+      }
+      .scr-val {
+        font-size: 3rem;
+        transform: scaleY(1.5);
+      }
+    }
   }
-  .pickedByPlayer > .paper-icon {
-    top: -10rem;
-    left: -12rem;
-    border: 1.5rem solid base.$paper-gradient2;
-    box-shadow: 0px 5px base.$paper-gradient1, 0px 5px lightgrey inset;
-    // 0 0 0 4rem #2a3352, 0 0 0 8rem #232e4c, 0 0 0 12rem #1f2a4a;
+
+  .win-paper {
+    box-shadow: 0px 5px base.$paper-gradient1 0px 5px lightgrey inset,
+      0 0 0 4rem #2a3352, 0 0 0 8rem #232e4c, 0 0 0 12rem #1f2a4a;
   }
+  .win-rock {
+    box-shadow: 0px 5px base.$rock-gradient1 0px 5px lightgrey inset,
+      0 0 0 4rem #2a3352, 0 0 0 8rem #232e4c, 0 0 0 12rem #1f2a4a;
+  }
+  .win-scissors {
+    box-shadow: 0px 5px base.$scissors-gradient1 0px 5px lightgrey inset,
+      0 0 0 4rem #2a3352, 0 0 0 8rem #232e4c, 0 0 0 12rem #1f2a4a;
+  }
+
   .app-container > .playGame {
     justify-content: center;
     .pickedByPlayer,

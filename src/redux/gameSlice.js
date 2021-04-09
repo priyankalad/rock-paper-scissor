@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { update } from "lodash";
 
 export const gameSlice = createSlice({
   name: "statistics",
