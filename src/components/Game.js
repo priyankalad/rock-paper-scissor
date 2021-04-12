@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import paperIcon from "../images/icon-paper.svg";
 import rockIcon from "../images/icon-rock.svg";
 import rockWhiteIcon from "../images/icon-rock-white.svg";
@@ -12,6 +12,7 @@ export default function Game() {
     (state) => state.game
   );
   const dispatch = useDispatch();
+  const history = useHistory();
   const [reachedTime, setReachedTime] = useState(false);
 
   useEffect(() => {
@@ -22,6 +23,10 @@ export default function Game() {
       setReachedTime(true);
     }, 1800);
   }, []);
+
+  function handleClick() {
+    history.push("/");
+  }
 
   return reachedTime ? (
     <div className="playGame">
@@ -69,7 +74,7 @@ export default function Game() {
       </div>
       <div className="result-container">
         <h1> {winStatus === "tie" ? winStatus : "you " + winStatus}</h1>
-        <Link to="/">play again</Link>
+        <button onClick={handleClick}>play again</button>
       </div>
     </div>
   ) : (

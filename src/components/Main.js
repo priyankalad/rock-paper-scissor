@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import triangle from "../images/bg-triangle.svg";
 import paperIcon from "../images/icon-paper.svg";
 import rockIcon from "../images/icon-rock.svg";
@@ -8,34 +8,31 @@ import { useDispatch } from "react-redux";
 import { pickForPlayer } from "../redux/gameSlice";
 
 export default function Main() {
+  let history = useHistory();
   let dispatch = useDispatch();
+
+  function handleClick(item) {
+    dispatch(pickForPlayer(item));
+    history.push("/newgame");
+  }
 
   return (
     <div className="main">
       <img className="bgTriange" src={triangle} alt="Triangle" />
 
       <div className="icons">
-        <Link
-          to="/newgame"
-          className="paper-icon"
-          onClick={() => dispatch(pickForPlayer("paper"))}
-        >
+        <button className="paper-icon" onClick={() => handleClick("paper")}>
           <img src={paperIcon} alt="paper icon" />
-        </Link>
-        <Link
-          to="/newgame"
+        </button>
+        <button
           className="scissors-icon"
-          onClick={() => dispatch(pickForPlayer("scissors"))}
+          onClick={() => handleClick("scissors")}
         >
           <img src={scissorsIcon} alt="scissors icon" />
-        </Link>
-        <Link
-          to="/newgame"
-          className="rock-icon"
-          onClick={() => dispatch(pickForPlayer("rock"))}
-        >
+        </button>
+        <button className="rock-icon" onClick={() => handleClick("rock")}>
           <img src={rockIcon} alt="rock icon" />
-        </Link>
+        </button>
       </div>
     </div>
   );

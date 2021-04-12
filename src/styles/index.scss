@@ -93,6 +93,7 @@ body {
   .win-scissors {
     z-index: -999;
   }
+
   .main {
     position: relative;
     margin-top: 2rem;
@@ -105,7 +106,8 @@ body {
     }
     .icons {
       position: absolute;
-      a {
+
+      button {
         position: absolute;
         border-radius: 50%;
         background-color: white;
@@ -113,6 +115,9 @@ body {
         border-radius: 50%;
         cursor: pointer;
         outline-style: none;
+      }
+      button:focus {
+        padding: 3rem;
       }
     }
   }
@@ -178,18 +183,22 @@ body {
       align-items: center;
       width: 100%;
       color: white;
-      a,
+
+      button,
       h1 {
-        transform: scaleY(1.2);
+        transform: scaleY(1.2) !important;
       }
-      a {
+
+      button {
         padding: 1rem;
         border: 1px solid white;
         border-radius: 10px;
-        color: base.$dark-text;
+        color: base.$dark-text i !important;
         transform: scaleY(1);
         background-color: white;
         text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
       }
     }
     img {
@@ -224,6 +233,11 @@ body {
       font-size: 0.8rem;
       letter-spacing: 0.1rem;
       cursor: pointer;
+    }
+
+    .btnRules:focus {
+      background-color: white;
+      color: base.$radial-gradient1;
     }
 
     .modalBox {
