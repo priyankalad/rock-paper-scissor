@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import rulesImg from "../images/image-rules.svg";
 import closeButton from "../images/icon-close.svg";
-import { hidden } from "kleur";
 
 export default function Footer() {
   const [modal, setModal] = useState(false);

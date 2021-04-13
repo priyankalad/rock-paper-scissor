@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 export default function Score() {
   const { score } = useSelector((state) => state.game);
-  console.log(score);
   return (
     <div className="stat">
       <p className="scr-title">score</p>

@@ -28,7 +28,6 @@ export const gameSlice = createSlice({
       housePicked: action.payload,
     }),
     setWinStatus: (state, action) => {
-      console.log(action);
       let updatedState = { ...state };
       updatedState.housePicked = action.payload;
       const { housePicked, playerPicked } = updatedState;
