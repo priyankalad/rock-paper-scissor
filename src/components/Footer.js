@@ -15,23 +15,39 @@ export default function Footer() {
   }
 
   return (
-    <footer>
-      <button className="btnRules" onClick={openModal}>
-        Rules
-      </button>
-      <div
-        id="rules-modal"
-        style={modal ? { visibility: "visible" } : { visibility: "hidden" }}
-        className="modalBox"
-      >
-        <div className="rules-container">
-          <h1 className="heading">rules</h1>
-          <img className="img-rules" src={rulesImg} alt="game rules" />
-          <button className="btnClose" onClick={closeModal}>
-            <img src={closeButton} alt="game rules" />
-          </button>
+    <>
+      <footer>
+        <button className="btnRules" onClick={openModal}>
+          Rules
+        </button>
+        <div
+          id="rules-modal"
+          style={modal ? { visibility: "visible" } : { visibility: "hidden" }}
+          className="modalBox"
+        >
+          <div className="rules-container">
+            <h1 className="heading">rules</h1>
+            <img className="img-rules" src={rulesImg} alt="game rules" />
+            <button className="btnClose" onClick={closeModal}>
+              <img src={closeButton} alt="game rules" />
+            </button>
+          </div>
         </div>
+      </footer>
+      <div class="attribution">
+        Challenge by{" "}
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+          Frontend Mentor
+        </a>
+        . Coded by{" "}
+        <a
+          href="https://www.frontendmentor.io/profile/priyankalad"
+          target="_blank"
+        >
+          Priyanka Lad
+        </a>
+        .
       </div>
-    </footer>
+    </>
   );
 }

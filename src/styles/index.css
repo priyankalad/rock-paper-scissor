@@ -193,6 +193,16 @@ body {
   font-weight: 800;
   color: white;
 }
+.app-container .attribution {
+  color: white;
+  position: fixed;
+  bottom: 1rem;
+  text-transform: none;
+}
+.app-container .attribution a {
+  color: #dc2e4e;
+  text-decoration: none;
+}
 .app-container footer {
   display: flex;
   align-items: center;

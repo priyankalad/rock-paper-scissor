@@ -213,7 +213,16 @@ body {
       color: white;
     }
   }
-
+  .attribution {
+    color: white;
+    position: fixed;
+    bottom: 1rem;
+    text-transform: none;
+    a {
+      color: base.$rock-gradient1;
+      text-decoration: none;
+    }
+  }
   footer {
     display: flex;
     align-items: center;
@@ -221,6 +230,7 @@ body {
     margin-top: 5rem;
     position: fixed;
     bottom: 5%;
+
     .btnRules {
       padding: 1rem 2rem;
       border: 1px solid white;
