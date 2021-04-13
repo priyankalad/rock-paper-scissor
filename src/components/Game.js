@@ -22,7 +22,7 @@ export default function Game() {
       dispatch(setWinStatus(randomlySelectedByHouse["item"]));
       setReachedTime(true);
     }, 1800);
-  }, []);
+  }, [dispatch, items]);
 
   function handleClick() {
     history.push("/");
