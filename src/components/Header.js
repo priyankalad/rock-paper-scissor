@@ -1,14 +1,12 @@
 import React from "react";
-import GamesWon from "./GamesWon";
 import Logo from "./Logo";
-import Score from "./Score";
+import GameStat from "./GameStat";
 
 export default function Header() {
   return (
     <div className="header">
       <Logo />
-      <GamesWon />
-      <Score />
+      <GameStat />
     </div>
   );
 }

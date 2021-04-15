@@ -1,4 +1,5 @@
 @use 'base';
+@use 'variables' as vars;
 
 html {
   box-sizing: border-box;
@@ -17,8 +18,8 @@ body {
   width: 100vw;
   background: linear-gradient(
     to bottom,
-    base.$radial-gradient1,
-    base.$radial-gradient2
+    vars.$radial-gradient1,
+    vars.$radial-gradient2
   );
   font-family: "Barlow Semi Condensed", sans-serif;
   text-transform: uppercase;
@@ -40,18 +41,21 @@ body {
     border-radius: 1rem;
     z-index: 111;
     .stat {
-      width: 5rem;
+      width: 7rem;
       height: 7rem;
       background-color: white;
       border-radius: 1rem;
       text-align: center;
-      .scr-title {
-        color: base.$score-text;
+      display: flex;
+      &__title {
+        color: vars.$score-text;
         font-weight: 600;
+        font-size: 0.8rem;
+        padding: 0 0.1rem;
       }
-      .scr-val {
+      &__value {
         font-size: 1.5rem;
-        color: base.$dark-text;
+        color: vars.$dark-text;
         transform: scaleY(1.3);
         margin: 0;
       }
@@ -61,31 +65,31 @@ body {
   .paper-icon {
     top: -10rem;
     left: -12rem;
-    border: 1.5rem solid base.$paper-gradient2;
-    box-shadow: 0px 5px base.$paper-gradient1, 0px 5px lightgrey inset;
+    border: 1.5rem solid vars.$paper-gradient2;
+    box-shadow: 0px 5px vars.$paper-gradient1, 0px 5px lightgrey inset;
   }
   .scissors-icon {
     top: -10rem;
     left: 2rem;
-    border: 1.5rem solid base.$scissors-gradient2;
-    box-shadow: 0px 5px base.$scissors-gradient1, 0px 5px lightgrey inset;
+    border: 1.5rem solid vars.$scissors-gradient2;
+    box-shadow: 0px 5px vars.$scissors-gradient1, 0px 5px lightgrey inset;
   }
   .rock-icon {
     top: 2rem;
     left: -5rem;
-    border: 1.5rem solid base.$rock-gradient2;
-    box-shadow: 0px 8px base.$rock-gradient1, 0px 8px lightgrey inset;
+    border: 1.5rem solid vars.$rock-gradient2;
+    box-shadow: 0px 8px vars.$rock-gradient1, 0px 8px lightgrey inset;
   }
   .win-paper {
-    box-shadow: 0px 5px base.$paper-gradient1, 0px 5px lightgrey inset,
+    box-shadow: 0px 5px vars.$paper-gradient1, 0px 5px lightgrey inset,
       0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
   }
   .win-rock {
-    box-shadow: 0px 5px base.$rock-gradient1, 0px 5px lightgrey inset,
+    box-shadow: 0px 5px vars.$rock-gradient1, 0px 5px lightgrey inset,
       0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
   }
   .win-scissors {
-    box-shadow: 0px 5px base.$scissors-gradient1, 0px 5px lightgrey inset,
+    box-shadow: 0px 5px vars.$scissors-gradient1, 0px 5px lightgrey inset,
       0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
   }
   .win-paper,
@@ -193,7 +197,7 @@ body {
         padding: 1rem;
         border: 1px solid white;
         border-radius: 10px;
-        color: base.$dark-text i !important;
+        color: vars.$dark-text i !important;
         transform: scaleY(1);
         background-color: white;
         text-decoration: none;
@@ -219,7 +223,7 @@ body {
     bottom: 1rem;
     text-transform: none;
     a {
-      color: base.$rock-gradient1;
+      color: vars.$rock-gradient1;
       text-decoration: none;
     }
   }
@@ -247,7 +251,7 @@ body {
 
     .btnRules:focus {
       background-color: white;
-      color: base.$radial-gradient1;
+      color: vars.$radial-gradient1;
     }
 
     .modalBox {
@@ -266,7 +270,7 @@ body {
         flex-direction: column;
         height: 100%;
         h1 {
-          color: base.$dark-text;
+          color: vars.$dark-text;
           transform: scaleY(1.3);
         }
         button {
@@ -283,28 +287,29 @@ body {
   .app-container > .header {
     width: 50%;
     .stat {
-      width: 8rem;
+      width: 11rem;
       height: 8rem;
-      .scr-title {
+      &__title {
+        padding: 0 0.3rem;
         letter-spacing: 0.1rem;
       }
-      .scr-val {
+      &__value {
         font-size: 3rem;
-        transform: scaleY(1.5);
+        transform: scaleY(1.4);
       }
     }
   }
 
   .win-paper {
-    box-shadow: 0px 5px base.$paper-gradient1 0px 5px lightgrey inset,
+    box-shadow: 0px 5px vars.$paper-gradient1 0px 5px lightgrey inset,
       0 0 0 4rem #2a3352, 0 0 0 8rem #232e4c, 0 0 0 12rem #1f2a4a;
   }
   .win-rock {
-    box-shadow: 0px 5px base.$rock-gradient1 0px 5px lightgrey inset,
+    box-shadow: 0px 5px vars.$rock-gradient1 0px 5px lightgrey inset,
       0 0 0 4rem #2a3352, 0 0 0 8rem #232e4c, 0 0 0 12rem #1f2a4a;
   }
   .win-scissors {
-    box-shadow: 0px 5px base.$scissors-gradient1 0px 5px lightgrey inset,
+    box-shadow: 0px 5px vars.$scissors-gradient1 0px 5px lightgrey inset,
       0 0 0 4rem #2a3352, 0 0 0 8rem #232e4c, 0 0 0 12rem #1f2a4a;
   }
 
