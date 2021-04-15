@@ -47,6 +47,9 @@ body {
       border-radius: 1rem;
       text-align: center;
       display: flex;
+      &__games-won {
+        border-right: 1px dashed #2a46c0;
+      }
       &__title {
         color: vars.$score-text;
         font-weight: 600;
