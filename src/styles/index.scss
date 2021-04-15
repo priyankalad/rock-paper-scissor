@@ -1,6 +1,43 @@
 @use 'base';
 @use 'variables' as vars;
 
+@mixin game-object($object, $top: null, $left: null, $is-win) {
+  border-width: 1.5rem;
+  border-style: solid;
+  @if ($top != null and $left!= null) {
+    top: $top;
+    left: $left;
+  }
+  @if $object == paper {
+    border-color: vars.$paper-gradient2;
+    @if $is-win {
+      z-index: -999;
+      box-shadow: 0px 5px vars.$paper-gradient1, 0px 5px lightgrey inset,
+        0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
+    } @else {
+      box-shadow: 0px 5px vars.$paper-gradient1, 0px 5px lightgrey inset;
+    }
+  } @else if $object == rock {
+    border-color: vars.$rock-gradient2;
+    @if $is-win {
+      z-index: -999;
+      box-shadow: 0px 5px vars.$rock-gradient1, 0px 5px lightgrey inset,
+        0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
+    } @else {
+      box-shadow: 0px 5px vars.$rock-gradient1, 0px 5px lightgrey inset;
+    }
+  } @else {
+    border-color: vars.$scissors-gradient2;
+    @if $is-win {
+      z-index: -999;
+      box-shadow: 0px 5px vars.$scissors-gradient1, 0px 5px lightgrey inset,
+        0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
+    } @else {
+      box-shadow: 0px 5px vars.$scissors-gradient1, 0px 5px lightgrey inset;
+    }
+  }
+}
+
 html {
   box-sizing: border-box;
 }
@@ -39,7 +76,7 @@ body {
     padding: 1rem;
     border: 0.5rem solid #606e85;
     border-radius: 1rem;
-    z-index: 111;
+    z-index: -1;
     .stat {
       width: 7rem;
       height: 7rem;
@@ -66,39 +103,23 @@ body {
   }
 
   .paper-icon {
-    top: -10rem;
-    left: -12rem;
-    border: 1.5rem solid vars.$paper-gradient2;
-    box-shadow: 0px 5px vars.$paper-gradient1, 0px 5px lightgrey inset;
-  }
-  .scissors-icon {
-    top: -10rem;
-    left: 2rem;
-    border: 1.5rem solid vars.$scissors-gradient2;
-    box-shadow: 0px 5px vars.$scissors-gradient1, 0px 5px lightgrey inset;
+    @include game-object(paper, -10rem, -12rem, false);
   }
   .rock-icon {
-    top: 2rem;
-    left: -5rem;
-    border: 1.5rem solid vars.$rock-gradient2;
-    box-shadow: 0px 8px vars.$rock-gradient1, 0px 8px lightgrey inset;
+    @include game-object(rock, 2rem, -5rem, false);
   }
+  .scissors-icon {
+    @include game-object(scissors, -10rem, 2rem, false);
+  }
+
   .win-paper {
-    box-shadow: 0px 5px vars.$paper-gradient1, 0px 5px lightgrey inset,
-      0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
+    @include game-object(paper, null, null, true);
   }
   .win-rock {
-    box-shadow: 0px 5px vars.$rock-gradient1, 0px 5px lightgrey inset,
-      0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
+    @include game-object(rock, null, null, true);
   }
   .win-scissors {
-    box-shadow: 0px 5px vars.$scissors-gradient1, 0px 5px lightgrey inset,
-      0 0 0 2rem #2a3352, 0 0 0 4rem #232e4c, 0 0 0 6rem #1f2a4a;
-  }
-  .win-paper,
-  .win-rock,
-  .win-scissors {
-    z-index: -999;
+    @include game-object(scissors, null, null, true);
   }
 
   .main {
